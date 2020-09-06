@@ -10,6 +10,7 @@ import {
   FileIcon,
   MegaphoneIcon,
 } from "@primer/octicons-react";
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
   return (
@@ -24,35 +25,43 @@ const SideNav = () => {
             />
             <h3 className="text-light text-center">Aniket Das</h3>
             <div className="d-flex justify-content-center">
-              <a href="#">
+              <Link to="/home">
                 <img src={facebookIcon} alt="" className="social-links" />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/home">
                 <img src={twitterIcon} alt="" className="social-links" />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="/home">
                 <img src={linkedinIcon} alt="" className="social-links" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <nav className="nav-menu">
           <ul>
             <li className="mb-4">
-              <HomeIcon className="inactive-icon-color" size="medium" />
-              <span className="text-light h5 pl-2">Home</span>
+              <Link to="/home">
+                <HomeIcon className="inactive-icon-color" size="medium" />
+                <span className="text-light h5 pl-2">Home</span>
+              </Link>
             </li>
             <li className="mb-4">
-              <PersonIcon className="inactive-icon-color" size="medium" />
-              <span className="text-light h5 pl-2">About</span>
+              <Link to="/about">
+                <PersonIcon className="inactive-icon-color" size="medium" />
+                <span className="text-light h5 pl-2">About</span>
+              </Link>
             </li>
             <li className="mb-4">
-              <FileIcon className="inactive-icon-color" size="medium" />
-              <span className="text-light h5 pl-2">Resume</span>
+              <Link to="/resume">
+                <FileIcon className="inactive-icon-color" size="medium" />
+                <span className="text-light h5 pl-2">Resume</span>
+              </Link>
             </li>
             <li className="mb-4">
-              <MegaphoneIcon className="inactive-icon-color" size="medium" />
-              <span className="text-light h5 pl-2">Contact</span>
+              <Link to="/contact">
+                <MegaphoneIcon className="inactive-icon-color" size="medium" />
+                <span className="text-light h5 pl-2">Contact</span>
+              </Link>
             </li>
           </ul>
         </nav>
