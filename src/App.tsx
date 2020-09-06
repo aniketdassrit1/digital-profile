@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="container-fluid h-100">
         <div className="row h-100">
-          <div className="col-2">
+          <div className="col-2 p-0">
             <SideNav />
           </div>
           <div className="col-10">

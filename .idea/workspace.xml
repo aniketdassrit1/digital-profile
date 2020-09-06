@@ -11,12 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f6d0683-dbb0-43b2-81d0-f718f8debcb3" name="Default Changelist" comment="[dev] added the initial project structure">
-      <change afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sidenav/Sidenav.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sidenav/img/facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sidenav/img/linkedin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sidenav/img/profile-img.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sidenav/img/twitter.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/about/About.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/contact/Contact.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/resume/Resume.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidenav/Sidenav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidenav/Sidenav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidenav/Sidenav.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +34,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1gjheebgH0ITg4d2Td3CtT3lpjx" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,12 +52,22 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/sidenav/img" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
     <property name="ts.external.directory.path" value="D:\Development\digital-profile\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\digital-profile\src\components\sidenav" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\digital-profile\src\components\sidenav\img" />
+      <recent name="D:\Development\digital-profile\assets\img" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -52,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1598634005582</updated>
       <workItem from="1598634006725" duration="2423000" />
-      <workItem from="1599285056823" duration="5753000" />
+      <workItem from="1599285056823" duration="18890000" />
     </task>
     <task id="LOCAL-00001" summary="[dev] added the initial project structure">
       <created>1598638479658</created>
@@ -95,9 +121,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="292" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599288250000" />
+    <state x="351" y="78" key="SettingsEditor" timestamp="1599405920061">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="351" y="78" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599405920061" />
     <state x="452" y="183" key="Vcs.Push.Dialog.v2" timestamp="1599287479887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="452" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599287479887" />
+    <state x="605" y="132" width="710" height="776" key="find.popup" timestamp="1599393485307">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="605" y="132" width="710" height="776" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599393485307" />
+    <state x="539" y="5" key="search.everywhere.popup" timestamp="1599323808892">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599323808892" />
   </component>
 </project>
