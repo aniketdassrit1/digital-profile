@@ -11,12 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f6d0683-dbb0-43b2-81d0-f718f8debcb3" name="Default Changelist" comment="[dev] added sidenav component">
+      <change afterPath="$PROJECT_DIR$/src/components/profile-badge/ProfileBadge.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/profile-badge/ProfileBadge.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/firebase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/Home.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/home/Home.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sidenav/Sidenav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidenav/Sidenav.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sidenav/Sidenav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidenav/Sidenav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidenav/img/facebook.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidenav/img/linkedin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidenav/img/profile-img.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidenav/img/twitter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +54,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/sidenav/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/img" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
@@ -54,12 +63,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Development\digital-profile\src\components\sidenav" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Development\digital-profile\src\img" />
+      <recent name="D:\Development\digital-profile" />
       <recent name="D:\Development\digital-profile\src\components\sidenav\img" />
       <recent name="D:\Development\digital-profile\assets\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Development\digital-profile\src\img" />
+      <recent name="D:\Development\digital-profile\src\components\profile-badge\img" />
+      <recent name="D:\Development\digital-profile\src\components\sidenav" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -74,6 +87,8 @@
       <workItem from="1599285056823" duration="20276000" />
       <workItem from="1599407418166" duration="492000" />
       <workItem from="1599407922111" duration="650000" />
+      <workItem from="1599642854934" duration="7339000" />
+      <workItem from="1599884423801" duration="21502000" />
     </task>
     <task id="LOCAL-00001" summary="[dev] added the initial project structure">
       <created>1598638479658</created>
@@ -128,13 +143,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="351" y="78" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599405920061" />
-    <state x="452" y="183" key="Vcs.Push.Dialog.v2" timestamp="1599406399174">
+    <state x="452" y="183" key="Vcs.Push.Dialog.v2" timestamp="1599408905424">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599406399174" />
-    <state x="605" y="132" width="710" height="776" key="find.popup" timestamp="1599393485307">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="452" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1599408905424" />
+    <state x="2638" y="42" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599986464224">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2638" y="42" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599986464224" />
+    <state x="2525" y="0" width="710" height="1040" key="find.popup" timestamp="1599886308367">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2525" y="0" width="710" height="1040" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599886308367" />
     <state x="605" y="132" width="710" height="776" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599393485307" />
     <state x="539" y="5" key="search.everywhere.popup" timestamp="1599323808892">
       <screen x="0" y="0" width="1920" height="1040" />
