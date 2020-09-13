@@ -1,16 +1,14 @@
 import React from "react";
-import profileImg from "./img/profile-img.jpg";
-import facebookIcon from "./img/facebook.svg";
-import twitterIcon from "./img/twitter.svg";
-import linkedinIcon from "./img/linkedin.svg";
 import "./Sidenav.scss";
-import {
-  HomeIcon,
-  PersonIcon,
-  FileIcon,
-  MegaphoneIcon,
-} from "@primer/octicons-react";
+import HomeIcon from "@material-ui/icons/Home";
+import PersonIcon from "@material-ui/icons/Person";
+import ContactsIcon from "@material-ui/icons/Contacts";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { Link } from "react-router-dom";
+import ProfileBadge from "../profile-badge/ProfileBadge";
 
 const SideNav = () => {
   return (
@@ -18,21 +16,20 @@ const SideNav = () => {
       <div className="d-flex flex-column h-100">
         <div className="profile mb-5">
           <div className="d-flex flex-column">
-            <img
-              src={profileImg}
-              className="img-fluid round-circle profile-pic"
-              alt=""
+            <ProfileBadge
+              size="medium"
+              image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Fdeveloper-activity-bro.svg?alt=media&token=cf37d078-350e-4e97-83c1-47ded3107f13"
             />
             <h3 className="text-light text-center">Aniket Das</h3>
             <div className="d-flex justify-content-center">
-              <Link to="/home">
-                <img src={facebookIcon} alt="" className="social-links" />
+              <Link to="/home" className="pr-2">
+                <FacebookIcon fontSize="large" />
+              </Link>
+              <Link to="/home" className="pr-2">
+                <TwitterIcon fontSize="large" />
               </Link>
               <Link to="/home">
-                <img src={twitterIcon} alt="" className="social-links" />
-              </Link>
-              <Link to="/home">
-                <img src={linkedinIcon} alt="" className="social-links" />
+                <LinkedInIcon fontSize="large" />
               </Link>
             </div>
           </div>
@@ -41,25 +38,25 @@ const SideNav = () => {
           <ul>
             <li className="mb-4">
               <Link to="/home">
-                <HomeIcon className="inactive-icon-color" size="medium" />
+                <HomeIcon />
                 <span className="text-light h5 pl-2">Home</span>
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/about">
-                <PersonIcon className="inactive-icon-color" size="medium" />
+                <PersonIcon />
                 <span className="text-light h5 pl-2">About</span>
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/resume">
-                <FileIcon className="inactive-icon-color" size="medium" />
+                <MenuBookIcon />
                 <span className="text-light h5 pl-2">Resume</span>
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/contact">
-                <MegaphoneIcon className="inactive-icon-color" size="medium" />
+                <ContactsIcon />
                 <span className="text-light h5 pl-2">Contact</span>
               </Link>
             </li>

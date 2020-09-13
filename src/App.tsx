@@ -15,7 +15,7 @@ function App() {
           <div className="col-2 p-0">
             <SideNav />
           </div>
-          <div className="col-10">
+          <div className="col-10 bg-dark">
             <Switch>
               <Route path="/home">
                 <Home />
