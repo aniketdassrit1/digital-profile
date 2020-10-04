@@ -1,5 +1,6 @@
-export interface HomeDetails {
+export interface Detail {
   fields: DetailValue[];
+  id: string;
 }
 
 interface DetailValue {

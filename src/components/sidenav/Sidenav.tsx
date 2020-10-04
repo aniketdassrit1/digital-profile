@@ -20,7 +20,7 @@ const SideNav = () => {
               size="medium"
               image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Fdeveloper-activity-bro.svg?alt=media&token=cf37d078-350e-4e97-83c1-47ded3107f13"
             />
-            <h3 className="text-light text-center">Aniket Das</h3>
+            <h3 className="text-center">Aniket Das</h3>
             <div className="d-flex justify-content-center">
               <Link to="/home" className="pr-2">
                 <FacebookIcon fontSize="large" />
@@ -39,25 +39,25 @@ const SideNav = () => {
             <li className="mb-4">
               <Link to="/home">
                 <HomeIcon />
-                <span className="text-light h5 pl-2">Home</span>
+                <span className="h5 pl-2">Home</span>
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/about">
                 <PersonIcon />
-                <span className="text-light h5 pl-2">About</span>
+                <span className="h5 pl-2">About</span>
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/resume">
                 <MenuBookIcon />
-                <span className="text-light h5 pl-2">Resume</span>
+                <span className="h5 pl-2">Resume</span>
               </Link>
             </li>
             <li className="mb-4">
               <Link to="/contact">
                 <ContactsIcon />
-                <span className="text-light h5 pl-2">Contact</span>
+                <span className="h5 pl-2">Contact</span>
               </Link>
             </li>
           </ul>

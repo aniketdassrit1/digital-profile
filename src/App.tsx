@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import SideNav from "./components/sidenav/Sidenav";
 import { Switch, Route } from "react-router-dom";
 import Resume from "./screens/resume/Resume";
