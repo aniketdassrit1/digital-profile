@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../firebase";
-import { collectionData } from "rxfire/firestore";
 import { Grid, CircularProgress, Button } from "@material-ui/core";
 import "./Home.scss";
 import ProfileBadge from "../../components/profile-badge/ProfileBadge";
 import { Detail } from "./Home.interface";
 import { Link } from "react-router-dom";
 import find from "lodash/find";
+import { schemaDataForScreens } from "../../utils/services/Schema.service";
+import { SchemaConstants } from "../../utils/constants/Schema.constants";
 
 const Home = () => {
   const [loading, setStateLoading] = useState(false);
@@ -15,23 +15,28 @@ const Home = () => {
   const [detail, setStateDetail] = useState("");
   useEffect(() => {
     setStateLoading(true);
-    const HomeScreenSchema = collectionData(
-      db.collection("fl_schemas")
-    ).subscribe((data) => {
-      setStateLoading(false);
-      const personalInfo: any = find(
-        data as Detail[],
-        (schema) => schema.id === "personalInfoHome"
-      );
-      const [
-        personalInfoName,
-        personalInfoNameRole,
-        personalInfoNameDetail,
-      ] = personalInfo.fields;
-      setStateName(personalInfoName.description);
-      setStateRole(personalInfoNameRole.description);
-      setStateDetail(personalInfoNameDetail.description);
-    });
+    const HomeScreenSchema = schemaDataForScreens(
+      SchemaConstants.HomeSchema
+    ).subscribe(
+      (data) => {
+        setStateLoading(false);
+        const personalInfo: any = find(
+          data as Detail[],
+          (schema) => schema.id === "personalInfoHome"
+        );
+        const [
+          personalInfoName,
+          personalInfoNameRole,
+          personalInfoNameDetail,
+        ] = personalInfo.fields;
+        setStateName(personalInfoName.description);
+        setStateRole(personalInfoNameRole.description);
+        setStateDetail(personalInfoNameDetail.description);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
     return () => {
       HomeScreenSchema.unsubscribe();

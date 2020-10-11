@@ -3,4 +3,5 @@ export enum SchemaConstants {
   AboutUsSchema = "personalAboutMe",
   BioDataSchema = "personalBioData",
   WhatIDoSchema = "personalWhatIDo",
+  TimeLineSchema = "personalTimeline",
 }
