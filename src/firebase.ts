@@ -13,4 +13,14 @@ app.initializeApp({
   measurementId: "G-YQP674RFNC",
 });
 
-export const db = app.firestore();
+const db = app.firestore();
+
+if (window.location.hostname === "localhost") {
+  console.log("localhost detected!");
+  db.settings({
+    host: "localhost:8080",
+    ssl: false,
+  });
+}
+
+export default db;

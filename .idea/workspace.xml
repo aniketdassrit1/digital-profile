@@ -11,20 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f6d0683-dbb0-43b2-81d0-f718f8debcb3" name="Default Changelist" comment="[dev] added sidenav component">
-      <change afterPath="$PROJECT_DIR$/src/screens/about/About.interface.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/screens/about/About.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/constants/Schema.constants.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/services/Schema.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/resume/Resume.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/resume/timeline/ResumeTimeline.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidenav/Sidenav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidenav/Sidenav.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/about/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/about/About.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/home/Home.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/Home.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/screens/home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/resume/Resume.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/resume/Resume.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants/Schema.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants/Schema.constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/services/Schema.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/services/Schema.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +47,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -88,7 +86,9 @@
       <workItem from="1599407922111" duration="650000" />
       <workItem from="1599642854934" duration="7339000" />
       <workItem from="1599884423801" duration="34171000" />
-      <workItem from="1601745339094" duration="21114000" />
+      <workItem from="1601745339094" duration="31772000" />
+      <workItem from="1602332557857" duration="8082000" />
+      <workItem from="1602402151206" duration="9832000" />
     </task>
     <task id="LOCAL-00001" summary="[dev] added the initial project structure">
       <created>1598638479658</created>
@@ -151,14 +151,15 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2638" y="42" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599986464224" />
-    <state x="2525" y="0" width="710" height="1040" key="find.popup" timestamp="1601750029323">
+    <state x="2525" y="0" width="710" height="1040" key="find.popup" timestamp="1601839260021">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2525" y="0" width="710" height="1040" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601750029323" />
+    <state x="2525" y="0" width="710" height="1040" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601839260021" />
     <state x="605" y="132" width="710" height="776" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599393485307" />
-    <state x="539" y="5" key="search.everywhere.popup" timestamp="1600234880186">
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1602414298780">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1602414298780" />
     <state x="539" y="5" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600234880186" />
   </component>
 </project>
