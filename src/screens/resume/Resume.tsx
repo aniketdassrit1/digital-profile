@@ -2,34 +2,50 @@ import React, { Suspense, useEffect, useState } from "react";
 import { CircularProgress, Grid } from "@material-ui/core";
 import { merge } from "rxjs";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
-import { SchemaConstants } from "../../utils/constants/Schema.constants";
+import {
+  EducationSchema,
+  ExperienceSchema,
+  SchemaConstants,
+} from "../../utils/constants/Schema.constants";
 import { Result, Option } from "./Resume.interface";
-import ResumeTimeline from "./timeline/ResumeTimeline";
+import EduAndExp from "./edu-and-exp/EduAndExp";
+import Skills from "./skills/Skills";
 
 const Resume = () => {
-  const [timeLineDetails, setTimeLineDetails] = useState([]);
+  const [timeLineEducationDetails, setTimeLineEducationDetails] = useState([]);
+  const [timeLineExperienceDetails, setTimeLineExperienceDetails] = useState(
+    []
+  );
 
   useEffect(() => {
     const personalTimeline = merge(
-      schemaDataForScreens(SchemaConstants.TimeLineSchema)
+      schemaDataForScreens(SchemaConstants.TimeLineEducationSchema),
+      schemaDataForScreens(SchemaConstants.TimeLineExperienceSchema)
     ).subscribe((data: any) => {
-      data.fields = data.fields.map((field: any) => {
-        field.options = field.options.reduce(
-          (result: Result, option: Option) => {
-            result[option.key] = option.defaultValue;
-            return result;
-          },
-          {}
-        );
-        return field;
-      });
-      setTimeLineDetails(data.fields);
+      if (data.id === "personalEducationTimeline") {
+        const educationData = modifyEduAndExp(data, EducationSchema);
+        setTimeLineEducationDetails(educationData);
+      } else if (data.id === "personalExperienceTimeline") {
+        const experience = modifyEduAndExp(data, ExperienceSchema);
+        setTimeLineExperienceDetails(experience);
+      }
     });
 
     return () => {
       personalTimeline.unsubscribe();
     };
-  });
+  }, []);
+
+  const modifyEduAndExp = (data: any, schema: any) => {
+    return data.fields.map((field: any) => {
+      field.options = field.options.reduce((result: Result, option: Option) => {
+        // @ts-ignore
+        result[schema[option.key]] = option.defaultValue;
+        return result;
+      }, {});
+      return field;
+    });
+  };
 
   return (
     <Suspense fallback={<CircularProgress />}>
@@ -38,10 +54,14 @@ const Resume = () => {
           <h1>Resume</h1>
           <Grid container direction="row">
             <Grid container item xs={6}>
-              <ResumeTimeline details={timeLineDetails} />
+              <EduAndExp
+                timeLineEducationDetails={timeLineEducationDetails}
+                timeLineExperienceDetails={timeLineExperienceDetails}
+              />
             </Grid>
+
             <Grid container item xs={6}>
-              <h1>Skills</h1>
+              <Skills />
             </Grid>
           </Grid>
         </Grid>

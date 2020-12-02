@@ -13,4 +13,6 @@ app.initializeApp({
   measurementId: "G-YQP674RFNC",
 });
 
-export const db = app.firestore();
+const db = app.firestore();
+
+export default db;

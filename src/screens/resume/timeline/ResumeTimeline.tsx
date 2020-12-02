@@ -17,16 +17,18 @@ const ResumeTimeline = ({ details }: { details: Detail[] }) => {
       {details.map((timeLineDetail: Detail) => {
         return (
           <TimelineItem key={timeLineDetail.id}>
-            <TimelineOppositeContent>
-              <Typography variant="h6" color="textPrimary">
-                <span
-                  className="text-card-color"
-                  dangerouslySetInnerHTML={{
-                    __html: timeLineDetail.options.className,
-                  }}
-                />
-              </Typography>
-            </TimelineOppositeContent>
+            {timeLineDetail.options?.line1 ? (
+              <TimelineOppositeContent>
+                <Typography variant="h6" color="textPrimary">
+                  <span
+                    className="text-card-color"
+                    dangerouslySetInnerHTML={{
+                      __html: timeLineDetail.options.line1,
+                    }}
+                  />
+                </Typography>
+              </TimelineOppositeContent>
+            ) : null}
             <TimelineSeparator>
               <TimelineDot color="primary" />
               <TimelineConnector />
@@ -37,16 +39,20 @@ const ResumeTimeline = ({ details }: { details: Detail[] }) => {
                 transition={{ duration: 0.25 }}
               >
                 <Paper elevation={3} className="bg-dark mx-3 p-3">
-                  <Typography variant="h6" className="mb-2">
-                    <span className="text-card-color">
-                      {timeLineDetail.options.schoolName}
-                    </span>
-                  </Typography>
-                  <Typography>
-                    <span className="text-card-color">
-                      {timeLineDetail.options.percentage}
-                    </span>
-                  </Typography>
+                  {timeLineDetail.options.line3 ? (
+                    <Typography variant="h6" className="mb-2" align="center">
+                      <span className="text-card-color">
+                        {timeLineDetail.options.line3}
+                      </span>
+                    </Typography>
+                  ) : null}
+                  {timeLineDetail.options?.line4 ? (
+                    <Typography variant="h6" align="center">
+                      <span className="text-card-color">
+                        {timeLineDetail.options.line4}
+                      </span>
+                    </Typography>
+                  ) : null}
                 </Paper>
               </motion.div>
             </TimelineContent>

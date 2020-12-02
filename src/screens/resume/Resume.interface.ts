@@ -1,13 +1,19 @@
 export interface Result {
-  className: string;
-  schoolName: string;
-  percentage: string;
-  iconName: string;
+  line1?: string;
+  line2?: string;
+  line3?: string;
+  line4?: string;
 }
 
 export interface Option {
   defaultValue: string;
-  key: "className" | "schoolName" | "percentage" | "iconName";
+  key:
+    | "className"
+    | "schoolName"
+    | "percentage"
+    | "iconName"
+    | "designation"
+    | "duration";
 }
 
 export interface Detail {

@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid, CircularProgress, Button } from "@material-ui/core";
 import "./Home.scss";
 import ProfileBadge from "../../components/profile-badge/ProfileBadge";
-import { Detail } from "./Home.interface";
 import { Link } from "react-router-dom";
-import find from "lodash/find";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import { SchemaConstants } from "../../utils/constants/Schema.constants";
 
@@ -17,26 +15,17 @@ const Home = () => {
     setStateLoading(true);
     const HomeScreenSchema = schemaDataForScreens(
       SchemaConstants.HomeSchema
-    ).subscribe(
-      (data) => {
-        setStateLoading(false);
-        const personalInfo: any = find(
-          data as Detail[],
-          (schema) => schema.id === "personalInfoHome"
-        );
-        const [
-          personalInfoName,
-          personalInfoNameRole,
-          personalInfoNameDetail,
-        ] = personalInfo.fields;
-        setStateName(personalInfoName.description);
-        setStateRole(personalInfoNameRole.description);
-        setStateDetail(personalInfoNameDetail.description);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    ).subscribe((data: any) => {
+      setStateLoading(false);
+      const [
+        personalInfoName,
+        personalInfoNameRole,
+        personalInfoNameDetail,
+      ] = data.fields;
+      setStateName(personalInfoName.description);
+      setStateRole(personalInfoNameRole.description);
+      setStateDetail(personalInfoNameDetail.description);
+    });
 
     return () => {
       HomeScreenSchema.unsubscribe();
