@@ -60,7 +60,7 @@ const About = () => {
   };
 
   return (
-    <div className="ml-5 mt-3">
+    <div className="ml-5 mt-5">
       <Grid container direction="column">
         <h1>
           About <span className="text-default-color">me</span>

@@ -1,11 +1,11 @@
 import React from "react";
 import "./ProfileBadge.scss";
 
-const ProfileBadge = (props: any) => {
+const ProfileBadge = ({ image, size }: { image: string; size: string }) => {
   return (
     <img
-      src={props.image}
-      className={`round-circle profile-pic size-${props.size}`}
+      src={image}
+      className={`round-circle profile-pic size-${size}`}
       alt=""
     />
   );

@@ -1,4 +1,4 @@
-import { db } from "../../firebase";
+import db from "../../firebase";
 import { collectionData } from "rxfire/firestore";
 import find from "lodash/find";
 import { map } from "rxjs/operators";
@@ -9,7 +9,7 @@ const flSchema = collectionData(db.collection("fl_schemas"));
 export const schemaDataForScreens = (id: string) => {
   return flSchema.pipe(
     map((data) => {
-      return find(data as Detail[], (schema: Detail) => schema.id === id);
+      return find(data, (schema: Detail) => schema.id === id);
     })
   );
 };
