@@ -32,7 +32,7 @@ const About = () => {
     return () => {
       personalAboutMe.unsubscribe();
     };
-  });
+  }, []);
 
   const setAboutUs = (data: any) => {
     data.fields.forEach((field: any) => {
