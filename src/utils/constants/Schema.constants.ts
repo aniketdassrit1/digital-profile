@@ -7,6 +7,7 @@ export enum SchemaConstants {
   TimeLineExperienceSchema = "personalExperienceTimeline",
   SkillSchema = "personalSkillsData",
   EmailDetailsSchema = "personalEmailDetails",
+  SocialMediaSchema = "personalSocialMedia",
 }
 
 export const EducationSchema = {

@@ -88,7 +88,7 @@ const Home = () => {
 
             <Grid item xs={1}>
               <Link to="/contact">
-                <Button variant="contained">Contact Us</Button>
+                <Button variant="contained">Contact</Button>
               </Link>
             </Grid>
           </Grid>

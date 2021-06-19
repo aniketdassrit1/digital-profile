@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidenav.scss";
 import HomeIcon from "@material-ui/icons/Home";
 import PersonIcon from "@material-ui/icons/Person";
@@ -9,8 +9,22 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import { Link } from "react-router-dom";
 import ProfileBadge from "../profile-badge/ProfileBadge";
+import { schemaDataForScreens } from "../../utils/services/Schema.service";
+import { SchemaConstants } from "../../utils/constants/Schema.constants";
 
 const SideNav = () => {
+  const [socialMediaLinks, setSocialMediaLinks] = useState([]);
+  useEffect(() => {
+    const socialMediaSchema = schemaDataForScreens(
+      SchemaConstants.SocialMediaSchema
+    ).subscribe((socialMedia: any) => {
+      setSocialMediaLinks(socialMedia.fields);
+    });
+
+    return () => {
+      socialMediaSchema.unsubscribe();
+    };
+  }, []);
   return (
     <div className="h-100 sidenav-bg">
       <div className="d-flex flex-column h-100">
@@ -22,15 +36,24 @@ const SideNav = () => {
             />
             <h3 className="text-center">Aniket Das</h3>
             <div className="d-flex justify-content-center">
-              <Link to="/home" className="pr-2">
-                <FacebookIcon fontSize="large" />
-              </Link>
-              <Link to="/home" className="pr-2">
-                <TwitterIcon fontSize="large" />
-              </Link>
-              <Link to="/home">
-                <LinkedInIcon fontSize="large" />
-              </Link>
+              {socialMediaLinks.map((link: any) => {
+                return (
+                  <Link
+                    to={{ pathname: link.defaultValue }}
+                    target="_blank"
+                    key={link.id}
+                    className="pr-2"
+                  >
+                    {link.key === "facebook" && (
+                      <FacebookIcon fontSize="large" />
+                    )}
+                    {link.key === "twitter" && <TwitterIcon fontSize="large" />}
+                    {link.key === "linkedin" && (
+                      <LinkedInIcon fontSize="large" />
+                    )}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
