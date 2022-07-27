@@ -1,19 +1,19 @@
 import React from "react";
-import Timeline from "@material-ui/lab/Timeline";
-import TimelineItem from "@material-ui/lab/TimelineItem";
-import TimelineOppositeContent from "@material-ui/lab/TimelineOppositeContent";
-import Typography from "@material-ui/core/Typography";
-import TimelineSeparator from "@material-ui/lab/TimelineSeparator";
-import TimelineDot from "@material-ui/lab/TimelineDot";
-import TimelineConnector from "@material-ui/lab/TimelineConnector";
-import TimelineContent from "@material-ui/lab/TimelineContent";
+import Timeline from "@mui/lab/Timeline";
+import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import Typography from "@mui/material/Typography";
+import TimelineSeparator from "@mui/lab/TimelineSeparator";
+import TimelineDot from "@mui/lab/TimelineDot";
+import TimelineConnector from "@mui/lab/TimelineConnector";
+import TimelineContent from "@mui/lab/TimelineContent";
 import { motion } from "framer-motion";
-import Paper from "@material-ui/core/Paper";
+import Paper from "@mui/material/Paper";
 import { Detail } from "../Resume.interface";
 
 const ResumeTimeline = ({ details }: { details: Detail[] }) => {
   return (
-    <Timeline align="alternate">
+    <Timeline position="alternate">
       {details.map((timeLineDetail: Detail) => {
         return (
           <TimelineItem key={timeLineDetail.id}>

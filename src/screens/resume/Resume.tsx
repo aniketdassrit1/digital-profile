@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from "react";
-import { CircularProgress, Grid } from "@material-ui/core";
+import { CircularProgress, Grid } from "@mui/material";
 import { merge } from "rxjs";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import {

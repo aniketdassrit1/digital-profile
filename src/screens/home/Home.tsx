@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Grid, CircularProgress, Button } from "@material-ui/core";
+import { Grid, CircularProgress, Button } from "@mui/material";
 import "./Home.scss";
 import ProfileBadge from "../../components/profile-badge/ProfileBadge";
 import { Link } from "react-router-dom";
@@ -36,7 +36,7 @@ const Home = () => {
     <Grid
       container
       direction="column"
-      justify="center"
+      justifyContent="center"
       alignItems="center"
       className="h-100 home-page"
     >
@@ -47,7 +47,7 @@ const Home = () => {
           <Grid
             container
             direction="row"
-            justify="center"
+            justifyContent="center"
             alignItems="center"
             className="mb-5"
           >
@@ -75,7 +75,7 @@ const Home = () => {
               />
             </div>
           </Grid>
-          <Grid container direction="row" justify="center" alignItems="center">
+          <Grid container direction="row" justifyContent="center" alignItems="center">
             <Grid item className="mr-4">
               <Button
                 variant="contained"

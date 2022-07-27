@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent, Grid } from "@material-ui/core";
+import { Card, CardContent, Grid } from "@mui/material";
 import "./About.scss";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import { SchemaConstants } from "../../utils/constants/Schema.constants";
