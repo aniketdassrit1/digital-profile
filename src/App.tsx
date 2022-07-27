@@ -6,7 +6,7 @@ import Resume from "./screens/resume/Resume";
 import Contact from "./screens/contact/Contact";
 import About from "./screens/about/About";
 import Home from "./screens/home/Home";
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 
 function App() {
   return (

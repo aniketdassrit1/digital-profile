@@ -6,11 +6,11 @@ import {
   TextField,
   TextareaAutosize,
   Button,
-} from "@material-ui/core";
-import CallIcon from "@material-ui/icons/Call";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
-import SendIcon from "@material-ui/icons/Send";
+} from "@mui/material";
+import CallIcon from "@mui/icons-material/Call";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import SendIcon from "@mui/icons-material/Send";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import { SchemaConstants } from "../../utils/constants/Schema.constants";
 import DEFAULT_CONTACT_US from "./Contact.constants";
@@ -163,8 +163,8 @@ const Contact = () => {
                       <TextareaAutosize
                         {...field}
                         placeholder="Message"
-                        rowsMax={4}
-                        rowsMin={4}
+                        maxRows={4}
+                        minRows={4}
                         className="w-100"
                       />
                     )}

@@ -1,6 +1,6 @@
 import React from "react";
 import ProgressBar from "../../../../components/progress-bar/ProgressBar";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 const Languages = ({
   percentage,

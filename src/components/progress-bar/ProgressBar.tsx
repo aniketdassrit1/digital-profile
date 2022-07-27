@@ -1,23 +1,21 @@
 import React from "react";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import { createStyles, Theme, withStyles } from "@material-ui/core/styles";
+import LinearProgress from "@mui/material/LinearProgress";
+import { styled } from "@mui/material/styles";
 
-const BorderLinearProgress = withStyles((theme: Theme) =>
-  createStyles({
+const BorderLinearProgress = styled(LinearProgress)(({theme}) =>({
     root: {
-      height: 10,
-      borderRadius: 5,
+        height: 10,
+        borderRadius: 5,
     },
     colorPrimary: {
-      backgroundColor:
-        theme.palette.grey[theme.palette.type === "light" ? 200 : 700],
+        backgroundColor:
+            theme.palette.grey[theme.palette.mode === "light" ? 200 : 700],
     },
     bar: {
-      borderRadius: 5,
-      backgroundColor: "#1a90ff",
+        borderRadius: 5,
+        backgroundColor: "#1a90ff",
     },
-  })
-)(LinearProgress);
+}));
 
 const ProgressBar = ({ percentage }: { percentage: number }) => {
   return (
