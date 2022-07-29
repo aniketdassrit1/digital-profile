@@ -17,10 +17,10 @@
   }
 }
 
-.nav-menu * {
+.nav-menu {
   list-style: none !important;
-  .inactive-icon-color {
-    color: #6f7180;
+  ul > li {
+    display: inline;
   }
   a {
     text-decoration: none !important;

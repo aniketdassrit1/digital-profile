@@ -17,11 +17,8 @@ const Home = () => {
       SchemaConstants.HomeSchema
     ).subscribe((data: any) => {
       setStateLoading(false);
-      const [
-        personalInfoName,
-        personalInfoNameRole,
-        personalInfoNameDetail,
-      ] = data.fields;
+      const [personalInfoName, personalInfoNameRole, personalInfoNameDetail] =
+        data.fields;
       setStateName(personalInfoName.description);
       setStateRole(personalInfoNameRole.description);
       setStateDetail(personalInfoNameDetail.description);
@@ -75,7 +72,12 @@ const Home = () => {
               />
             </div>
           </Grid>
-          <Grid container direction="row" justifyContent="center" alignItems="center">
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Grid item className="mr-4">
               <Button
                 variant="contained"
@@ -99,3 +101,16 @@ const Home = () => {
 };
 
 export default Home;
+
+// const [socialMediaLinks, setSocialMediaLinks] = useState([]);
+// useEffect(() => {
+//   const socialMediaSchema = schemaDataForScreens(
+//     SchemaConstants.SocialMediaSchema
+//   ).subscribe((socialMedia: any) => {
+//     setSocialMediaLinks(socialMedia.fields);
+//   });
+//
+//   return () => {
+//     socialMediaSchema.unsubscribe();
+//   };
+// }, []);
