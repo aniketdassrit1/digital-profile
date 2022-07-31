@@ -63,30 +63,42 @@ const TopNav = () => {
     </Box>
   );
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box>
       <AppBar component="nav">
-        <Toolbar>
-          <Typography
-            variant="h6"
-            component={Link}
-            to="/"
+        <Toolbar
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box
             sx={{
-              flexGrow: 1,
-              display: { xs: "block", sm: "block" },
-              color: "#fff",
-              a: { textDecoration: "none" },
+              display: { xs: "block" },
             }}
           >
-            Aniket Das
-          </Typography>
+            <Button
+              size="large"
+              sx={{ color: "#fff" }}
+              component={Link}
+              to="/home"
+            >
+              Aniket Das
+            </Button>
+          </Box>
 
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Box
+            sx={{
+              display: { xs: "none", sm: "block" },
+            }}
+          >
             {navItems.map((item) => (
               <Button
                 key={item.name}
                 sx={{ color: "#fff" }}
                 component={Link}
                 to={item.link}
+                className="ml-4"
               >
                 {item.name}
               </Button>
@@ -104,6 +116,7 @@ const TopNav = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
+
       <Box component="nav">
         <Drawer
           anchor="right"
