@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.scss";
-import TopNav from "./components/sidenav/TopNav";
+import TopNav from "./components/topnav/TopNav";
 import { Switch, Route } from "react-router-dom";
 import Resume from "./screens/resume/Resume";
 import Contact from "./screens/contact/Contact";
 import About from "./screens/about/About";
 import Home from "./screens/home/Home";
-import { Grid, Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 
 function App() {
   return (

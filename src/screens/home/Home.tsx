@@ -5,23 +5,38 @@ import ProfileBadge from "../../components/profile-badge/ProfileBadge";
 import { Link } from "react-router-dom";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import { SchemaConstants } from "../../utils/constants/Schema.constants";
+import { combineLatest } from "rxjs";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import IconButton from "@mui/material/IconButton";
 
 const Home = () => {
   const [loading, setStateLoading] = useState(false);
   const [name, setStateName] = useState("");
   const [role, setStateRole] = useState("");
   const [detail, setStateDetail] = useState("");
+  const [socialMediaLinks, setSocialMediaLinks] = useState([]);
+
+  const socialMediaIcons: any = {
+    facebook: FacebookIcon,
+    twitter: TwitterIcon,
+    linkedin: LinkedInIcon,
+  };
+
   useEffect(() => {
     setStateLoading(true);
-    const HomeScreenSchema = schemaDataForScreens(
-      SchemaConstants.HomeSchema
-    ).subscribe((data: any) => {
+    const HomeScreenSchema = combineLatest([
+      schemaDataForScreens(SchemaConstants.HomeSchema),
+      schemaDataForScreens(SchemaConstants.SocialMediaSchema),
+    ]).subscribe(([home, socialMedia]: any) => {
       setStateLoading(false);
       const [personalInfoName, personalInfoNameRole, personalInfoNameDetail] =
-        data.fields;
+        home.fields;
       setStateName(personalInfoName.description);
       setStateRole(personalInfoNameRole.description);
       setStateDetail(personalInfoNameDetail.description);
+      setSocialMediaLinks(socialMedia.fields);
     });
 
     return () => {
@@ -46,52 +61,72 @@ const Home = () => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            className="mb-5"
+            className="mb-2"
           >
-            <div className="col-3">
-              <ProfileBadge
-                size="large"
-                image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Fprogramming-pana.svg?alt=media&token=9717c39c-2b48-4734-9842-5351388ec7db"
-              />
-            </div>
-            <div className="col-3">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: name,
-                }}
-              />
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: role,
-                }}
-              />
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: detail,
-                }}
-              />
-            </div>
-          </Grid>
-          <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item className="mr-4">
-              <Button
-                variant="contained"
-                href="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2FAniket%20das-Resume.pdf?alt=media&token=d6af2bc6-324d-4266-bcc7-91b40a32d11b"
-                target="_blank"
-              >
-                Download CV
-              </Button>
+            <Grid item xs={3}>
+              <Grid container direction="column">
+                <Grid item xs={3} className="mb-3">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: name,
+                    }}
+                  />
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: role,
+                    }}
+                  />
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: detail,
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={3} className="mb-3">
+                  <Grid container direction="row">
+                    <Grid item className="mr-3">
+                      <Button
+                        variant="contained"
+                        href="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2FAniket%20das-Resume.pdf?alt=media&token=d6af2bc6-324d-4266-bcc7-91b40a32d11b"
+                        target="_blank"
+                      >
+                        Resume
+                      </Button>
+                    </Grid>
+
+                    <Grid item>
+                      <Link to="/contact">
+                        <Button variant="contained">Contact</Button>
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={3}>
+                  {socialMediaLinks.length > 0 ? (
+                    socialMediaLinks.map((item: any, index: any) => (
+                      <IconButton
+                        color="primary"
+                        aria-label={item.key}
+                        href={item.defaultValue}
+                        target="_blank"
+                        className={index === 0 ? "pl-0" : ""}
+                      >
+                        {React.createElement(socialMediaIcons[item.key], {})}
+                      </IconButton>
+                    ))
+                  ) : (
+                    <CircularProgress />
+                  )}
+                </Grid>
+              </Grid>
             </Grid>
 
-            <Grid item xs={1}>
-              <Link to="/contact">
-                <Button variant="contained">Contact</Button>
-              </Link>
+            <Grid item xs={3}>
+              <ProfileBadge
+                size="large"
+                image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Ffinal-img.png?alt=media&token=af6c8ba4-b28b-42cd-a97e-af48b5f59a3a"
+              />
             </Grid>
           </Grid>
         </>
@@ -101,16 +136,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// const [socialMediaLinks, setSocialMediaLinks] = useState([]);
-// useEffect(() => {
-//   const socialMediaSchema = schemaDataForScreens(
-//     SchemaConstants.SocialMediaSchema
-//   ).subscribe((socialMedia: any) => {
-//     setSocialMediaLinks(socialMedia.fields);
-//   });
-//
-//   return () => {
-//     socialMediaSchema.unsubscribe();
-//   };
-// }, []);
