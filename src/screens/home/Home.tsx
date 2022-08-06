@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import { SchemaConstants } from "../../utils/constants/Schema.constants";
 import { combineLatest } from "rxjs";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import IconButton from "@mui/material/IconButton";
+import { SocialMedia } from "../../components/social-media/SocialMedia";
 
 const Home = () => {
   const [loading, setStateLoading] = useState(false);
@@ -17,12 +14,6 @@ const Home = () => {
   const [role, setStateRole] = useState("");
   const [detail, setStateDetail] = useState("");
   const [socialMediaLinks, setSocialMediaLinks] = useState([]);
-
-  const socialMediaIcons: any = {
-    facebook: FacebookIcon,
-    twitter: TwitterIcon,
-    linkedin: LinkedInIcon,
-  };
 
   useEffect(() => {
     setStateLoading(true);
@@ -48,7 +39,7 @@ const Home = () => {
     <Grid
       container
       direction="column"
-      justifyContent="center"
+      justifyContent="space-evenly"
       alignItems="center"
       className="h-100 home-page"
     >
@@ -59,13 +50,13 @@ const Home = () => {
           <Grid
             container
             direction="row"
-            justifyContent="center"
+            justifyContent="space-evenly"
             alignItems="center"
             className="mb-2"
           >
-            <Grid item xs={3}>
+            <Grid item sm={3} xs={12}>
               <Grid container direction="column">
-                <Grid item xs={3} className="mb-3">
+                <Grid item className="mb-3">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: name,
@@ -82,51 +73,55 @@ const Home = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={3} className="mb-3">
-                  <Grid container direction="row">
-                    <Grid item className="mr-3">
-                      <Button
-                        variant="contained"
-                        href="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2FAniket%20das-Resume.pdf?alt=media&token=d6af2bc6-324d-4266-bcc7-91b40a32d11b"
-                        target="_blank"
-                      >
-                        Resume
-                      </Button>
-                    </Grid>
 
-                    <Grid item>
-                      <Link to="/contact">
-                        <Button variant="contained">Contact</Button>
-                      </Link>
-                    </Grid>
-                  </Grid>
+                <Grid item className="mb-3">
+                  <Button
+                    variant="contained"
+                    href="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2FAniket%20das-Resume.pdf?alt=media&token=d6af2bc6-324d-4266-bcc7-91b40a32d11b"
+                    target="_blank"
+                    className="mr-2"
+                    sx={{
+                      "a:hover": {
+                        color: "none",
+                      },
+                    }}
+                  >
+                    Resume
+                  </Button>
+
+                  <Link to="/contact">
+                    <Button variant="contained">Contact</Button>
+                  </Link>
                 </Grid>
 
-                <Grid item xs={3}>
-                  {socialMediaLinks.length > 0 ? (
-                    socialMediaLinks.map((item: any, index: any) => (
-                      <IconButton
-                        color="primary"
-                        aria-label={item.key}
-                        href={item.defaultValue}
-                        target="_blank"
-                        className={index === 0 ? "pl-0" : ""}
-                      >
-                        {React.createElement(socialMediaIcons[item.key], {})}
-                      </IconButton>
-                    ))
-                  ) : (
-                    <CircularProgress />
-                  )}
+                <Grid
+                  item
+                  sx={{
+                    display: { xs: "none", sm: "flex" },
+                  }}
+                >
+                  <SocialMedia links={socialMediaLinks} />
                 </Grid>
               </Grid>
             </Grid>
 
-            <Grid item xs={3}>
-              <ProfileBadge
-                size="large"
-                image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Ffinal-img.png?alt=media&token=af6c8ba4-b28b-42cd-a97e-af48b5f59a3a"
-              />
+            <Grid item sm={3} sx={{ display: { xs: "none", sm: "flex" } }}>
+              <ProfileBadge image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Ffinal-img.png?alt=media&token=af6c8ba4-b28b-42cd-a97e-af48b5f59a3a" />
+            </Grid>
+          </Grid>
+
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            sx={{ display: { sm: "none" } }}
+          >
+            <Grid item sx={{ display: { xs: "block" } }}>
+              <SocialMedia links={socialMediaLinks} />
+            </Grid>
+
+            <Grid item xs={6}>
+              <ProfileBadge image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Ffinal-img.png?alt=media&token=af6c8ba4-b28b-42cd-a97e-af48b5f59a3a" />
             </Grid>
           </Grid>
         </>

@@ -13,7 +13,7 @@ function App() {
     <>
       <div className="h-100">
         <TopNav />
-        <Paper square sx={{ height: "100%" }}>
+        <Paper square sx={{ height: "100%" }} className="p-2">
           <Switch>
             <Route path="/home">
               <Home />
