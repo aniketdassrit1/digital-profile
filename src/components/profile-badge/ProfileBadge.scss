@@ -1,30 +1,6 @@
-.profile-pic {
-  margin: 15px auto;
-  display: block;
-  border: 8px solid #ffffff;
-  border-radius: 50% !important;
-}
-
-.size-medium {
-  width: 200px;
-  height: 200px;
-}
-
-.size-large {
-  width: 300px;
-  height: 300px;
-}
-
-.round-circle {
-  border-radius: 50% !important;
-}
-
-.primary-fill-background {
-  fill: #1976d2;
-}
-
-.home {
-  &__blob {
-    fill: #1976d2;
-  }
+.home__blob-img {
+  border-radius: 50%;
+  border: 5px solid #1976d2;
+  width: 80%;
+  height: 80%
 }

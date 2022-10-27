@@ -7,10 +7,12 @@ import Contact from "./screens/contact/Contact";
 import About from "./screens/about/About";
 import Home from "./screens/home/Home";
 import { Paper } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./theme";
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <div className="h-100">
         <TopNav />
         <Paper square sx={{ height: "100%" }} className="p-2">
@@ -33,7 +35,7 @@ function App() {
           </Switch>
         </Paper>
       </div>
-    </>
+    </ThemeProvider>
   );
 }
 

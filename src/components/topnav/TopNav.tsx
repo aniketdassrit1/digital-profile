@@ -71,6 +71,7 @@ const TopNav = () => {
             alignItems: "center",
             justifyContent: "space-between",
           }}
+          className="px-5"
         >
           <Box
             sx={{
@@ -79,7 +80,11 @@ const TopNav = () => {
           >
             <Button
               size="large"
-              sx={{ color: "#fff" }}
+              variant="text"
+              sx={{
+                color: "#fff",
+                ":hover": { color: "none", background: "none" },
+              }}
               component={Link}
               to="/home"
             >
@@ -91,6 +96,7 @@ const TopNav = () => {
             sx={{
               display: { xs: "none", sm: "block" },
             }}
+            className="pr-5"
           >
             {navItems.map((item) => (
               <Button
