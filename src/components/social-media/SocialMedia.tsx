@@ -21,7 +21,7 @@ export function SocialMedia({ links }: { links: any }) {
             aria-label={item.key}
             href={item.defaultValue}
             target="_blank"
-            sx={{ display: { xs: "block", sm: "inline-flex" } }}
+            sx={{ display: { xs: "inline-flex" } }}
           >
             {React.createElement(socialMediaIcons[item.key], {})}
           </IconButton>

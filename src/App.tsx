@@ -15,7 +15,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="h-100">
         <TopNav />
-        <Paper square sx={{ height: "100%" }} className="p-2">
+        <Paper
+          square
+          sx={{ height: "100%", "margin-top": { xs: "30px", sm: "0" } }}
+          className="p-3"
+        >
           <Switch>
             <Route path="/home">
               <Home />

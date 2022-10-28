@@ -7,6 +7,7 @@ import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import { SchemaConstants } from "../../utils/constants/Schema.constants";
 import { combineLatest } from "rxjs";
 import { SocialMedia } from "../../components/social-media/SocialMedia";
+import Box from "@mui/material/Box";
 
 const Home = () => {
   const [loading, setStateLoading] = useState(false);
@@ -65,68 +66,114 @@ const Home = () => {
 
             <Grid item sm={3} xs={12}>
               <Grid container direction="column">
-                <Grid item className="mb-3">
-                  <h5>Hello,</h5>
-                  <h1 className="content-header">
-                    I am&nbsp;
-                    <span>{name}</span>
-                  </h1>
-                  <h3 className="my-3">
-                    <span className="type">
-                      <span>
-                        {roles.map((role) => (
-                          <span>{role}</span>
-                        ))}
-                      </span>
-                    </span>
-                  </h3>
-                  <h6>{detail}</h6>
-                </Grid>
-
-                <Grid item className="mb-3">
-                  <Button
-                    variant="contained"
-                    href="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2FAniket%20das-Resume.pdf?alt=media&token=d6af2bc6-324d-4266-bcc7-91b40a32d11b"
-                    target="_blank"
-                    className="mr-2"
+                <Grid item className="mb-3 pl-2">
+                  <Box
                     sx={{
-                      "a:hover": {
-                        color: "none",
-                      },
+                      display: { xs: "flex" },
+                      alignItems: { xs: "center", sm: "flex-start" },
+                      justifyContent: { xs: "center", sm: "flex-start" },
                     }}
                   >
-                    Download CV
-                  </Button>
+                    <h5>Hello,</h5>
+                  </Box>
 
-                  <Link to="/contact">
-                    <Button variant="contained">Contact</Button>
-                  </Link>
+                  <Box
+                    sx={{
+                      display: { xs: "flex", sm: "inline" },
+                      "flex-direction": { xs: "column", sm: "row" },
+                      alignItems: { xs: "center", sm: "flex-start" },
+                      justifyContent: { xs: "center", sm: "flex-start" },
+                    }}
+                  >
+                    <h1>I am</h1>
+                    <h1 className="content-header">
+                      <span>{name}</span>
+                    </h1>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: { xs: "flex" },
+                      alignItems: { xs: "center", sm: "flex-start" },
+                      justifyContent: { xs: "center", sm: "flex-start" },
+                    }}
+                  >
+                    <h3 className="my-3">
+                      <span className="type">
+                        <span>
+                          {roles.map((role) => (
+                            <span>{role}</span>
+                          ))}
+                        </span>
+                      </span>
+                    </h3>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: { xs: "flex" },
+                      alignItems: { xs: "center", sm: "flex-start" },
+                      justifyContent: { xs: "center", sm: "flex-start" },
+                    }}
+                  >
+                    <span className="h6">{detail}</span>
+                  </Box>
+                </Grid>
+                <Grid item className="mb-3">
+                  <Box
+                    sx={{
+                      display: { xs: "flex" },
+                      alignItems: { xs: "center", sm: "flex-start" },
+                      justifyContent: { xs: "center", sm: "flex-start" },
+                      "padding-left": { xs: 0, sm: "0.5rem" },
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      href="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2FAniket%20das-Resume.pdf?alt=media&token=d6af2bc6-324d-4266-bcc7-91b40a32d11b"
+                      target="_blank"
+                      className="mr-2"
+                      sx={{
+                        "a:hover": {
+                          color: "none",
+                        },
+                      }}
+                    >
+                      Download CV
+                    </Button>
+
+                    <Link to="/contact">
+                      <Button variant="contained">Contact</Button>
+                    </Link>
+                  </Box>
                 </Grid>
 
-                <Grid
-                  item
-                  sx={{
-                    display: { xs: "none", sm: "flex" },
-                  }}
-                >
+                {/* Do not show this UI of social media for smaller devices */}
+                <Grid item sx={{ display: { xs: "none", sm: "flex" } }}>
                   <SocialMedia links={socialMediaLinks} />
                 </Grid>
+
+                {/*Mobile UI for image and social media links*/}
+                <Grid item xs={12} sx={{ display: { sm: "none" } }}>
+                  <Grid item xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <ProfileBadge image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Ffinal-img.png?alt=media&token=af6c8ba4-b28b-42cd-a97e-af48b5f59a3a" />
+                    </Box>
+                  </Grid>
+
+                  <Grid item xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <SocialMedia links={socialMediaLinks} />
+                    </Box>
+                  </Grid>
+                </Grid>
               </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            sx={{ display: { sm: "none" } }}
-          >
-            <Grid item sx={{ display: { xs: "block" } }}>
-              <SocialMedia links={socialMediaLinks} />
-            </Grid>
-
-            <Grid item xs={6}>
-              <ProfileBadge image="https://firebasestorage.googleapis.com/v0/b/digital-portfolio-ee168.appspot.com/o/flamelink%2Fmedia%2Ffinal-img.png?alt=media&token=af6c8ba4-b28b-42cd-a97e-af48b5f59a3a" />
             </Grid>
           </Grid>
         </>

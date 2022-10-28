@@ -7,7 +7,8 @@ const ProfileBadge = ({ image }: { image: string }) => {
     <Box
       className="home"
       sx={{
-        width: { xs: "100%", height: "100%" },
+        width: { xs: "40%", sm: "80%" },
+        height: { xs: "40%", sm: "80%" },
       }}
     >
       <img alt="profile pic" className="home__blob-img" src={image} />
