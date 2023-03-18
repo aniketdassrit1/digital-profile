@@ -42,7 +42,7 @@ const Home = () => {
       direction="column"
       justifyContent="space-evenly"
       alignItems="center"
-      className="h-100 home-page"
+      className="home-page"
     >
       {loading ? (
         <CircularProgress />
@@ -53,7 +53,7 @@ const Home = () => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            className="mb-2"
+            className="mb-2 full-viewport-height pt-5"
           >
             <Grid
               item
@@ -80,7 +80,7 @@ const Home = () => {
                   <Box
                     sx={{
                       display: { xs: "flex", sm: "inline" },
-                      "flex-direction": { xs: "column", sm: "row" },
+                      flexDirection: { xs: "column", sm: "row" },
                       alignItems: { xs: "center", sm: "flex-start" },
                       justifyContent: { xs: "center", sm: "flex-start" },
                     }}
@@ -100,8 +100,8 @@ const Home = () => {
                     <h3 className="my-3">
                       <span className="type">
                         <span>
-                          {roles.map((role) => (
-                            <span>{role}</span>
+                          {roles.map((role, index) => (
+                            <span key={index.toString()}>{role}</span>
                           ))}
                         </span>
                       </span>
@@ -123,7 +123,7 @@ const Home = () => {
                       display: { xs: "flex" },
                       alignItems: { xs: "center", sm: "flex-start" },
                       justifyContent: { xs: "center", sm: "flex-start" },
-                      "padding-left": { xs: 0, sm: "0.5rem" },
+                      paddingLeft: { xs: 0, sm: "0.5rem" },
                     }}
                   >
                     <Button

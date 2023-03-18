@@ -22,6 +22,7 @@ export function SocialMedia({ links }: { links: any }) {
             href={item.defaultValue}
             target="_blank"
             sx={{ display: { xs: "inline-flex" } }}
+            key={index.toString()}
           >
             {React.createElement(socialMediaIcons[item.key], {})}
           </IconButton>

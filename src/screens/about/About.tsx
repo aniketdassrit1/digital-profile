@@ -4,17 +4,26 @@ import "./About.scss";
 import { schemaDataForScreens } from "../../utils/services/Schema.service";
 import { SchemaConstants } from "../../utils/constants/Schema.constants";
 import { merge } from "rxjs";
-import { motion } from "framer-motion";
-import { WhatIdo } from "./About.interface";
+import { BioData, WhatIdo } from "./About.interface";
+import CakeSharpIcon from "@mui/icons-material/CakeSharp";
+import BoySharpIcon from "@mui/icons-material/BoySharp";
+import HomeSharpIcon from "@mui/icons-material/HomeSharp";
+import AlternateEmailSharpIcon from "@mui/icons-material/AlternateEmailSharp";
+import {
+  calculateYears,
+  formatBirthDate,
+} from "../../utils/services/Date.serice";
+import Box from "@mui/material/Box";
+import { CUSTOMERS, WhatIDoIcons } from "./About.constant";
 
 const About = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [birthday, setBirthDay] = useState("");
-  const [age, setAge] = useState("");
+  const [age, setAge] = useState();
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
-  const [whatIdo, setWhatIdo] = useState([]);
+  const [whatIdo, setWhatIdo] = useState<WhatIdo[]>([]);
 
   useEffect(() => {
     const personalAboutMe = merge(
@@ -22,9 +31,26 @@ const About = () => {
       schemaDataForScreens(SchemaConstants.BioDataSchema),
       schemaDataForScreens(SchemaConstants.WhatIDoSchema)
     ).subscribe((data: any) => {
+      if (data.id === SchemaConstants.BioDataSchema) {
+        const { defaultValue, description, key } = data.fields.find(
+          (field: WhatIdo) => field.key === BioData.Experience
+        );
+        setWhatIdo((prevState: WhatIdo[]) => [
+          ...prevState,
+          {
+            defaultValue: `${calculateYears(defaultValue)} years`,
+            description,
+            key,
+          },
+        ]);
+      }
       if (data.id === SchemaConstants.WhatIDoSchema) {
-        setWhatIdo(data.fields);
-      } else {
+        setWhatIdo((prevState: WhatIdo[]) => [...prevState, ...data.fields]);
+      }
+      if (
+        data.id === SchemaConstants.AboutUsSchema ||
+        data.id === SchemaConstants.BioDataSchema
+      ) {
         setAboutUs(data);
       }
     });
@@ -44,10 +70,8 @@ const About = () => {
           setDescription(field.defaultValue);
           break;
         case "birthday":
-          setBirthDay(field.defaultValue);
-          break;
-        case "age":
-          setAge(field.defaultValue);
+          setAge(calculateYears(field.defaultValue));
+          setBirthDay(formatBirthDate(new Date(field.defaultValue)));
           break;
         case "address":
           setAddress(field.defaultValue);
@@ -60,64 +84,108 @@ const About = () => {
   };
 
   return (
-    <div className="ml-5 mt-5">
-      <Grid container direction="column">
+    <Grid container direction="column" className="mt-5">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <h1>
           About <span className="text-default-color">me</span>
         </h1>
+      </Box>
 
-        <Grid container direction="row" className="mt-5 mb-5 pb-5">
-          <Grid container item xs={6}>
-            <Grid container direction="column">
-              <h3 className="mb-4">
-                I'm <span className="text-default-color">{title}</span>
-              </h3>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        className="mt-5 mb-5 pb-5"
+      >
+        <Grid container item xs={10} sm={6}>
+          <Card raised={true}>
+            <CardContent>
+              <Grid container direction="column">
+                <h3 className="mb-4">
+                  I'm <span className="text-default-color">{title}</span>
+                </h3>
 
-              <Grid container item xs={10}>
                 <p>{description}</p>
+
+                <dl className="row w-100">
+                  <dt className="col-3 text-default-color">
+                    <CakeSharpIcon /> Birthday
+                  </dt>
+                  <dd className="col-9">{birthday}</dd>
+                  <dt className="col-3 text-default-color">
+                    <BoySharpIcon /> Age
+                  </dt>
+                  <dd className="col-9">{age}</dd>
+                  <dt className="col-3 text-default-color">
+                    <HomeSharpIcon /> Address
+                  </dt>
+                  <dd className="col-9">{address}</dd>
+                  <dt className="col-3 text-default-color">
+                    <AlternateEmailSharpIcon /> Email
+                  </dt>
+                  <dd className="col-9">{email}</dd>
+                </dl>
               </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid container item xs={4}>
-            <dl className="row w-100">
-              <dt className="col-3 text-default-color">Birthday</dt>
-              <dd className="col-9">{birthday}</dd>
-              <dt className="col-3 text-default-color">Age</dt>
-              <dd className="col-9">{age}</dd>
-              <dt className="col-3 text-default-color">Address</dt>
-              <dd className="col-9">{address}</dd>
-              <dt className="col-3 text-default-color">Email</dt>
-              <dd className="col-9">{email}</dd>
-            </dl>
-          </Grid>
-        </Grid>
-
-        <h3 className="mb-5">
-          <span className="text-underline">What I Do</span>
-        </h3>
-
-        <Grid container direction="row" xs={12}>
-          {whatIdo.map((task: WhatIdo) => {
-            return (
-              <Grid container item xs={4} className="mr-5">
-                <motion.div
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <Card className="w-100 bg-dark" raised={true}>
-                    <CardContent>
-                      <h1 className="text-card-color">{task.description}</h1>
-                      <p className="text-card-color">{task.defaultValue}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            );
-          })}
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
-    </div>
+
+      <Grid container direction="row" justifyContent="center" className="mb-5">
+        <h3 className="text-underline">Achivements</h3>
+      </Grid>
+
+      <Grid
+        container
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "stretch",
+        }}
+      >
+        {whatIdo.map((task: WhatIdo, index: number) => {
+          return (
+            <Grid
+              item
+              xs={8}
+              sm={2}
+              key={index.toString()}
+              className="mr-2 mb-2"
+            >
+              <Card raised={true}>
+                <CardContent>
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    {React.createElement(WhatIDoIcons[task.key], {
+                      sx: {
+                        fontSize: 40,
+                        color: task.key === CUSTOMERS ? "red" : "white",
+                      },
+                    })}
+                    <h3 className="text-card-color">{task.defaultValue}</h3>
+                    <h5 className="text-card-color">{task.description}</h5>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Grid>
   );
 };
 

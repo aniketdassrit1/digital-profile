@@ -63,8 +63,8 @@ const TopNav = () => {
     </Box>
   );
   return (
-    <Box>
-      <AppBar component="nav">
+    <>
+      <AppBar component="header">
         <Toolbar
           sx={{
             display: "flex",
@@ -143,7 +143,7 @@ const TopNav = () => {
           {drawer}
         </Drawer>
       </Box>
-    </Box>
+    </>
   );
 };
 
